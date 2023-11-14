@@ -16,8 +16,7 @@ class Pixel():
     def draw(self, surface):
         surface.blit(self.surface, self.pos)
 
-def create_list_of_pos(pos):
-    list = []
+def create_list_of_pos(list, pos):
     list.append(pos)
     print(list)
     return list
@@ -29,6 +28,7 @@ def main():
     resolution = (800, 800)
     screen = pygame.display.set_mode(resolution)
     pixel = Pixel()
+    pos_list = []
 
     running = True
     while running:
@@ -37,10 +37,12 @@ def main():
                 running = False 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-                create_list_of_pos(mouse_pos)
+                create_list_of_pos(pos_list, mouse_pos)
 
         screen.fill('black')
-        pixel.draw(screen)
+        for pos in pos_list:
+            pixel.pos = pos
+            pixel.draw(screen)
         pygame.display.flip()
     pygame.quit()
 
