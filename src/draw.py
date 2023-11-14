@@ -16,6 +16,13 @@ class Pixel():
     def draw(self, surface):
         surface.blit(self.surface, self.pos)
 
+def create_list_of_pos(pos):
+    list = []
+    list.append(pos)
+    print(list)
+    return list
+    
+
 def main():
     pygame.init()
     pygame.display.set_caption("Pixel Draw")
@@ -30,8 +37,8 @@ def main():
                 running = False 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-                pixel.pos = mouse_pos
-                pixel.draw(screen)
+                create_list_of_pos(mouse_pos)
+
         screen.fill('black')
         pixel.draw(screen)
         pygame.display.flip()
