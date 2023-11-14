@@ -28,16 +28,19 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                pixel.pos = mouse_pos
+                pixel.draw(screen)
         screen.fill('black')
+        pixel.draw(screen)
         pygame.display.flip()
     pygame.quit()
 
 if __name__=="__main__":
     main()
 
-#create game loop
 #toggle screen from off white to black
-#create pixel class
 #draw pixel to screen according to mouse position
 #create shape class
 #add shape to scren according to mouse pos on KEYDOWN
