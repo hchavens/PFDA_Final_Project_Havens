@@ -1,3 +1,21 @@
+import pygame
+
+def main():
+    pygame.init()
+    pygame.display.set_caption("Pixel Draw")
+    resolution = (800, 800)
+    screen = pygame.display.set_mode(resolution)
+
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False 
+        screen.fill('black')
+    pygame.quit()
+
+if __name__=="__main__":
+    main()
 #create main function with screen and exit
 #create game loop
 #toggle screen from off white to black
