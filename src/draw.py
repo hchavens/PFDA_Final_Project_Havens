@@ -2,7 +2,7 @@ import pygame
 
 class Pixel():
 
-    def __init__(self, pos = (0,0), size = 5, color = "red"):
+    def __init__(self, pos = (0,0), size = 5, color = ("red")):
         self.pos = pos
         self.size = size
         self.color = color
@@ -13,12 +13,12 @@ class Pixel():
         surf.fill(self.color)
         return surf
     
-    def draw(self, surface):
-        surface.blit(self.surface, self.pos)
+    def draw(self, surface, color):
+        self.color = color
+        surface.blit(self.surface, self.pos, self.color)
 
 def create_list_of_pos(list, pos):
     list.append(pos)
-    print(list)
     return list
     
 
@@ -28,7 +28,8 @@ def main():
     resolution = (800, 800)
     screen = pygame.display.set_mode(resolution)
     pixel = Pixel()
-    pos_list = []
+    pixel_pos_list = []
+    color_list = ['aqua', 'darkgoldenrod1', 'lightcoral', 'seagreen1', 'teal', 'orchid3']
 
     running = True
     while running:
@@ -37,11 +38,13 @@ def main():
                 running = False 
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-                create_list_of_pos(pos_list, mouse_pos)
+                create_list_of_pos(pixel_pos_list, mouse_pos)
 
         screen.fill('black')
-        for pos in pos_list:
+        for pos in pixel_pos_list:
             pixel.pos = pos
+            for color in color_list:
+                pixel.color = color
             pixel.draw(screen)
         pygame.display.flip()
     pygame.quit()
@@ -50,7 +53,6 @@ if __name__=="__main__":
     main()
 
 #toggle screen from off white to black
-#draw pixel to screen according to mouse position
 #create shape class
 #add shape to scren according to mouse pos on KEYDOWN
 #create pixel sticker class
