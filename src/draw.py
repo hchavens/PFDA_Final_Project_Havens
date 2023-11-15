@@ -2,10 +2,10 @@ import pygame
 
 class Pixel():
 
-    def __init__(self, pos = (0,0), size = 5, color = ("red")):
+    def __init__(self, pos = (0,0), size = 5):
         self.pos = pos
         self.size = size
-        self.color = color
+        self.color = pygame.Color('aqua')
         self.surface = self.update_surface()
 
     def update_surface(self):
@@ -13,9 +13,12 @@ class Pixel():
         surf.fill(self.color)
         return surf
     
-    def draw(self, surface, color):
+    def draw(self, surface):
+        surface.blit(self.surface, self.pos)
+
+    def change_color(self, color):
         self.color = color
-        surface.blit(self.surface, self.pos, self.color)
+        self.draw()
 
 def create_list_of_pos(list, pos):
     list.append(pos)
@@ -39,12 +42,12 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 create_list_of_pos(pixel_pos_list, mouse_pos)
-
+            if event.type == pygame.KEYDOWN:
+                for color in color_list:
+                    pixel.color = color
         screen.fill('black')
         for pos in pixel_pos_list:
             pixel.pos = pos
-            for color in color_list:
-                pixel.color = color
             pixel.draw(screen)
         pygame.display.flip()
     pygame.quit()
