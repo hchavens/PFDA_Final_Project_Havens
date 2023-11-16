@@ -1,21 +1,13 @@
 import pygame
+import random
 
 class Pixel():
 
     def __init__(self, pos = (0,0), size = 5, color = ('aqua')):
         self.pos = pos
         self.size = size
-        self.color = pygame.Color(color)
+        self.color = color
         self.surface = self.update_surface()
-
-        
-    # def change_color(self):
-    #     color_list = ['darkgoldenrod1', 'lightcoral', 
-    #                   'seagreen1', 'teal', 'orchid3']
-    #     for color in color_list:
-    #         self.color = color
-    #         print(self.color)
-
 
     def update_surface(self):
         surf = pygame.Surface((self.size, self.size))
@@ -38,7 +30,7 @@ def main():
     pixel = Pixel()
     pixel_pos_list = []
     color_list = ['aqua', 'darkgoldenrod1', 'lightcoral', 'seagreen1', 'teal', 'orchid3']
-
+    pixcolor= ('lightcoral')
     running = True
     while running:
         for event in pygame.event.get():
@@ -48,8 +40,9 @@ def main():
                 mouse_pos = pygame.mouse.get_pos()
                 create_list_of_pos(pixel_pos_list, mouse_pos)
             # if event.type == pygame.KEYDOWN:
-            #     pixel.change_color()      
-        pixel.color = pygame.Color('pink')
+            #     if event.key == pygame.K_1:
+
+        pixel.color = pixcolor
         screen.fill('black')
         for pos in pixel_pos_list:
             pixel.pos = pos
