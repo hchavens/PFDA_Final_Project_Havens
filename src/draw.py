@@ -30,7 +30,6 @@ def main():
     pixel = Pixel()
     pixel_pos_list = []
     color_list = ['aqua', 'darkgoldenrod1', 'lightcoral', 'seagreen1', 'teal', 'orchid3']
-    pixcolor= ('lightcoral')
     running = True
     while running:
         for event in pygame.event.get():
@@ -39,13 +38,15 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 create_list_of_pos(pixel_pos_list, mouse_pos)
-            # if event.type == pygame.KEYDOWN:
-            #     if event.key == pygame.K_1:
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_1:
+                    color = pygame.Color('lightcoral')
+                    return color
 
-        pixel.color = pixcolor
         screen.fill('black')
         for pos in pixel_pos_list:
             pixel.pos = pos
+            pixel.color = color 
             pixel.draw(screen)
         pygame.display.flip()
     pygame.quit()
