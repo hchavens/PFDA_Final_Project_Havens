@@ -20,7 +20,7 @@ class Pixel():
 def create_list_of_pos(list, pos):
     list.append(pos)
     return list
-    
+
 
 def main():
     pygame.init()
@@ -29,25 +29,30 @@ def main():
     screen = pygame.display.set_mode(resolution)
     pixel = Pixel()
     pixel_pos_list = []
+    circle_pos_list = []
     color_list = ['aqua', 'darkgoldenrod1', 'lightcoral', 'seagreen1', 'teal', 'orchid3']
     running = True
+    color = 'lightcoral'
     while running:
         for event in pygame.event.get():
+            mouse_pos = pygame.mouse.get_pos()
             if event.type == pygame.QUIT:
                 running = False 
             if event.type == pygame.MOUSEBUTTONDOWN:
-                mouse_pos = pygame.mouse.get_pos()
                 create_list_of_pos(pixel_pos_list, mouse_pos)
             if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_1:
-                    color = pygame.Color('lightcoral')
-                    return color
-
+                # if event.key == pygame.K_1:
+                #     color = pygame.Color('lightcoral')
+                #     return color
+                if event.key == pygame.K_c:
+                    create_list_of_pos(circle_pos_list, mouse_pos)
+                
         screen.fill('black')
         for pos in pixel_pos_list:
             pixel.pos = pos
-            pixel.color = color 
             pixel.draw(screen)
+        for pos in circle_pos_list:
+            pygame.draw.circle(screen, color, pos, 5)
         pygame.display.flip()
     pygame.quit()
 
