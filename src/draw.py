@@ -1,5 +1,4 @@
 import pygame
-import random
 
 class Pixel():
 
@@ -30,7 +29,6 @@ def main():
     pixel = Pixel()
     pixel_pos_list = []
     circle_pos_list = []
-    color_list = ['aqua', 'darkgoldenrod1', 'lightcoral', 'seagreen1', 'teal', 'orchid3']
     running = True
     color = 'aqua'
     while running:
@@ -41,6 +39,8 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 create_list_of_pos(pixel_pos_list, mouse_pos)
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_f:
+                    pygame.display.toggle_fullscreen()
                 if event.key == pygame.K_1:
                     color = pygame.Color('lightcoral')
                 if event.key == pygame.K_2:
