@@ -32,7 +32,7 @@ def main():
     circle_pos_list = []
     color_list = ['aqua', 'darkgoldenrod1', 'lightcoral', 'seagreen1', 'teal', 'orchid3']
     running = True
-    color = 'lightcoral'
+    color = 'aqua'
     while running:
         for event in pygame.event.get():
             mouse_pos = pygame.mouse.get_pos()
@@ -41,9 +41,16 @@ def main():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 create_list_of_pos(pixel_pos_list, mouse_pos)
             if event.type == pygame.KEYDOWN:
-                # if event.key == pygame.K_1:
-                #     color = pygame.Color('lightcoral')
-                #     return color
+                if event.key == pygame.K_1:
+                    color = pygame.Color('lightcoral')
+                if event.key == pygame.K_2:
+                    color = pygame.Color('darkgoldenrod1')    
+                if event.key == pygame.K_3:
+                    color = pygame.Color('seagreen1')
+                if event.key == pygame.K_4:
+                    color = pygame.Color('teal')
+                if event.key == pygame.K_5:
+                    color = pygame.Color('orchid3')            
                 if event.key == pygame.K_c:
                     create_list_of_pos(circle_pos_list, mouse_pos)
                 
