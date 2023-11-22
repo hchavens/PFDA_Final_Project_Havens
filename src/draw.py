@@ -67,7 +67,5 @@ if __name__=="__main__":
     main()
 
 #toggle screen from off white to black
-#create shape class
-#add shape to scren according to mouse pos on KEYDOWN
 #create pixel sticker class
 #add Pixel sticker at random based on mouse pos
