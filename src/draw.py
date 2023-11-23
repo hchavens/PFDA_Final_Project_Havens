@@ -29,9 +29,13 @@ def main():
     pixel = Pixel()
     pixel_pos_list = []
     circle_pos_list = []
+    donut_list = []
     running = True
     bg_color = 'black'
     color = 'teal'
+
+    green_donut = pygame.image.load('pixel_art/green_cat_doughnut.png').convert_alpha()
+
     while running:
         for event in pygame.event.get():
             mouse_pos = pygame.mouse.get_pos()
@@ -58,8 +62,12 @@ def main():
                     bg_color = pygame.Color('antiquewhite')
                 if event.key == pygame.K_b:
                     bg_color = pygame.Color('black')
+                if event.key == pygame.K_d:
+                    create_list_of_pos(donut_list, mouse_pos)
                 
         screen.fill(bg_color)
+        for pos in donut_list:
+            screen.blit(green_donut, (pos))
         for pos in pixel_pos_list:
             pixel.pos = pos
             pixel.draw(screen)
@@ -71,6 +79,5 @@ def main():
 if __name__=="__main__":
     main()
 
-#toggle screen from off white to black
 #create pixel sticker class
 #add Pixel sticker at random based on mouse pos
