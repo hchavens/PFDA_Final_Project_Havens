@@ -2,7 +2,7 @@ import pygame
 
 class Pixel():
 
-    def __init__(self, pos = (0,0), size = 5, color = ('aqua')):
+    def __init__(self, pos = (0,0), size = 5, color = ('teal')):
         self.pos = pos
         self.size = size
         self.color = color
@@ -30,7 +30,8 @@ def main():
     pixel_pos_list = []
     circle_pos_list = []
     running = True
-    color = 'aqua'
+    bg_color = 'black'
+    color = 'teal'
     while running:
         for event in pygame.event.get():
             mouse_pos = pygame.mouse.get_pos()
@@ -53,8 +54,12 @@ def main():
                     color = pygame.Color('orchid3')            
                 if event.key == pygame.K_c:
                     create_list_of_pos(circle_pos_list, mouse_pos)
+                if event.key == pygame.K_w:
+                    bg_color = pygame.Color('antiquewhite')
+                if event.key == pygame.K_b:
+                    bg_color = pygame.Color('black')
                 
-        screen.fill('black')
+        screen.fill(bg_color)
         for pos in pixel_pos_list:
             pixel.pos = pos
             pixel.draw(screen)
