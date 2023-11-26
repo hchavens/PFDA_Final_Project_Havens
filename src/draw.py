@@ -27,14 +27,23 @@ def main():
     resolution = (800, 800)
     screen = pygame.display.set_mode(resolution)
     pixel = Pixel()
+
     pixel_pos_list = []
     circle_pos_list = []
-    donut_list = []
+    donut_pos = []
+
     running = True
+
     bg_color = 'black'
     color = 'teal'
 
-    green_donut = pygame.image.load('pixel_art/green_cat_doughnut.png').convert_alpha()
+    donut_list = [pygame.image.load('pixel_art/green_cat_doughnut.png').convert_alpha(), 
+                  pygame.image.load('pixel_art/pink_doughnut.png').convert_alpha(),
+                  pygame.image.load('pixel_art/plain_doughnut.png').convert_alpha(),
+                  pygame.image.load('pixel_art/purple_doughnut.png').convert_alpha()]
+
+
+
 
     while running:
         for event in pygame.event.get():
@@ -63,21 +72,23 @@ def main():
                 if event.key == pygame.K_b:
                     bg_color = pygame.Color('black')
                 if event.key == pygame.K_d:
-                    create_list_of_pos(donut_list, mouse_pos)
+                    create_list_of_pos(donut_pos, mouse_pos)
                 
         screen.fill(bg_color)
-        for pos in donut_list:
-            screen.blit(green_donut, (pos))
+
+        for pos in donut_pos:
+            for donut in donut_list:
+                screen.blit(donut, (pos))
+
         for pos in pixel_pos_list:
             pixel.pos = pos
             pixel.draw(screen)
+            
         for pos in circle_pos_list:
             pygame.draw.circle(screen, color, pos, 5)
+
         pygame.display.flip()
     pygame.quit()
 
 if __name__=="__main__":
     main()
-
-#create pixel sticker class
-#add Pixel sticker at random based on mouse pos
