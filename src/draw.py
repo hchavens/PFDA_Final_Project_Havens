@@ -1,4 +1,5 @@
 import pygame
+import random
 
 class Pixel():
 
@@ -27,8 +28,8 @@ class Donut():
                           pygame.image.load('pixel_art/pink_doughnut.png').convert_alpha(),
                           pygame.image.load('pixel_art/plain_doughnut.png').convert_alpha(),
                           pygame.image.load('pixel_art/purple_doughnut.png').convert_alpha()]
-            for donut in donut_list:
-                return donut
+            donut = random.choice(donut_list)
+            return donut
 
     def draw(self, surface):
         surface.blit(self.surface, self.pos)
@@ -89,6 +90,7 @@ def main():
         for pos in donut_pos:
             donut.pos = pos
             donut.draw(screen)
+
         for pos in pixel_pos_list:
             pixel.pos = pos
             pixel.draw(screen)
