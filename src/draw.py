@@ -16,6 +16,23 @@ class Pixel():
     def draw(self, surface):
         surface.blit(self.surface, self.pos)
 
+class Donut():
+
+    def __init__(self, pos = (0,0)):
+        self.pos = pos
+        self.surface = self.update_surface()
+    
+    def update_surface(self):
+            donut_list = [pygame.image.load('pixel_art/green_cat_doughnut.png').convert_alpha(), 
+                          pygame.image.load('pixel_art/pink_doughnut.png').convert_alpha(),
+                          pygame.image.load('pixel_art/plain_doughnut.png').convert_alpha(),
+                          pygame.image.load('pixel_art/purple_doughnut.png').convert_alpha()]
+            for donut in donut_list:
+                return donut
+
+    def draw(self, surface):
+        surface.blit(self.surface, self.pos)
+
 def create_list_of_pos(list, pos):
     list.append(pos)
     return list
@@ -27,6 +44,7 @@ def main():
     resolution = (800, 800)
     screen = pygame.display.set_mode(resolution)
     pixel = Pixel()
+    donut = Donut()
 
     pixel_pos_list = []
     circle_pos_list = []
@@ -36,14 +54,6 @@ def main():
 
     bg_color = 'black'
     color = 'teal'
-
-    donut_list = [pygame.image.load('pixel_art/green_cat_doughnut.png').convert_alpha(), 
-                  pygame.image.load('pixel_art/pink_doughnut.png').convert_alpha(),
-                  pygame.image.load('pixel_art/plain_doughnut.png').convert_alpha(),
-                  pygame.image.load('pixel_art/purple_doughnut.png').convert_alpha()]
-
-
-
 
     while running:
         for event in pygame.event.get():
@@ -77,13 +87,12 @@ def main():
         screen.fill(bg_color)
 
         for pos in donut_pos:
-            for donut in donut_list:
-                screen.blit(donut, (pos))
-
+            donut.pos = pos
+            donut.draw(screen)
         for pos in pixel_pos_list:
             pixel.pos = pos
             pixel.draw(screen)
-            
+
         for pos in circle_pos_list:
             pygame.draw.circle(screen, color, pos, 5)
 
