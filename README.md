@@ -34,8 +34,6 @@ learned this semester and I really enjoyed making it.
 - press "b" to change the screen color back to black
 
 
-# Contributing
-1. Holly Havens
 
 
 
