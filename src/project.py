@@ -35,6 +35,8 @@ class Donut():
         surface.blit(self.surface, self.pos)
 
 def create_list_of_pos(list, pos):
+    """adds items to list
+    """
     list.append(pos)
     return list
 
