@@ -36,7 +36,14 @@ class Donut():
 
 def create_list_of_pos(list, pos):
     """adds items to list
-    """
+    :param list: list to be added to
+    :type list: list
+    
+    :param pos: position of mouse to be added to the list
+    :type pos: tuple
+    
+    :return: appended list
+    :rtype: list"""
     list.append(pos)
     return list
 
