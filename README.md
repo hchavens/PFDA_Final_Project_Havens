@@ -1,5 +1,5 @@
 # PFDA_Final_Project_Havens
-## Draw pixels, shapes, and donuts on to a canvas
+ Draw pixels, shapes, and donuts on to a canvas
 
 # Usage
 - click mouse to add a pixel to the drawing pad
