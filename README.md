@@ -21,15 +21,15 @@ In the future I would like to be able to change each individual circle and pixel
 color. I would also like to add a better way to change the donuts while the 
 program is running.
 
-Overall it is just a fun little program to help me synethesize what I have 
+Overall it is just a fun little program to help me synthesize what I have 
 learned this semester and I really enjoyed making it.
 
 # Usage
 - click mouse to add a pixel to the drawing pad
-- press"c" to add a circle
+- press "c" to add a circle
 - press "d" to add a pixel art donut
 - the numbers 1-5 change the color of the circles
-- press "f" to toggle to fullscreen
+- press "f" to toggle to full screen
 - press "w" to change screen color to off white
 - press "b" to change the screen color back to black
 
